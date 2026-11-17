@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="anat-build" content="student">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Head and neck CT anatomy trainer - research prototype</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/anatomy.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>Slice to 3D</h1>
+        <p>Head and neck CT anatomy trainer</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span id="author-badge" class="badge author-only" hidden>AUTHOR MODE</span>
+      <span id="synthetic-badge" class="badge badge-synth" hidden>SYNTHETIC DATA</span>
+      <button id="btn-help" class="ghost">How to use</button>
+      <div class="menu-wrap">
+        <button id="btn-menu" class="ghost" aria-haspopup="true" aria-label="More" title="More">&#8943;</button>
+        <div id="menu" role="menu" hidden>
+          <button role="menuitem" id="btn-about">About and credits</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside id="panel">
+      <nav class="tabs four" role="tablist">
+        <button class="tab active" data-mode="explore" role="tab"><span>1</span>Explore</button>
+        <button class="tab" data-mode="quiz" role="tab"><span>2</span>Quiz</button>
+        <button class="tab" data-mode="landmarks" role="tab"><span>3</span>Landmarks</button>
+        <button class="tab" data-mode="review" role="tab"><span>4</span>Review</button>
+      </nav>
+
+      <section id="mode-explore" class="stage">
+        <div class="row">
+          <label for="scan-select">Scan</label>
+          <select id="scan-select"></select>
+        </div>
+        <p id="scan-note" class="warning" hidden></p>
+        <div class="row">
+          <label>CT window</label>
+          <div class="seg" id="window-buttons"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="chk-outlines" checked> Structure outlines on slices</label>
+        <details id="display-settings">
+          <summary>Display settings</summary>
+          <label class="check"><input type="checkbox" id="chk-smooth" checked> Smooth pixels (off = see the real voxels)</label>
+          <label class="check"><input type="checkbox" id="chk-sharpen"> Sharpen edges</label>
+          <label class="check"><input type="checkbox" id="chk-planes" checked> Slice planes in 3D</label>
+          <div class="row">
+            <label for="skull-opacity">Bone opacity</label>
+            <input type="range" id="skull-opacity" min="0" max="100" value="22">
+          </div>
+        </details>
+
+        <div id="info-card" class="card">
+          <p class="muted">Click a structure on a slice, in the 3D view or in the list below.</p>
+        </div>
+
+        <h3>Structures</h3>
+        <div id="structure-list"></div>
+      </section>
+
+      <section id="mode-quiz" class="stage" hidden>
+        <div id="quiz-start">
+          <p>One question per structure: <strong>find</strong> it on the slices, or <strong>name</strong> the highlighted one.</p>
+          <div class="row"><label for="quiz-module">Module</label><select id="quiz-module"></select></div>
+          <button id="quiz-begin" class="primary">Start</button>
+          <p id="quiz-need" class="muted" hidden></p>
+        </div>
+        <div id="quiz-run" hidden>
+          <div class="quiz-head"><span id="quiz-count"></span><span id="quiz-score"></span></div>
+          <p id="quiz-prompt" class="prompt"></p>
+          <div id="quiz-choices"></div>
+          <button id="quiz-check" class="primary" hidden>Check</button>
+          <div id="quiz-feedback" class="card" hidden></div>
+          <button id="quiz-next" class="primary" hidden>Next</button>
+        </div>
+        <div id="quiz-done" hidden>
+          <p id="quiz-final" class="prompt"></p>
+          <div id="quiz-missed"></div>
+          <button id="quiz-again" class="primary">Another round</button>
+        </div>
+        <div class="author-only stage-extra" hidden>
+          <hr>
+          <p class="muted" id="quiz-history"></p>
+          <button id="quiz-csv" class="ghost">Download results (CSV)</button>
+          <button id="quiz-clear" class="ghost">Clear saved results</button>
+          <p class="muted small">Results stay in this browser only. The file contains no names or identifiers.</p>
+        </div>
+      </section>
+
+      <section id="mode-review" class="stage" hidden>
+        <div class="rv-who"><span>Reviewing as</span>
+          <div class="seg wide" id="rv-stage"><button data-v="author">Author</button><button data-v="radiologist">Reviewer</button></div></div>
+        <p class="muted" id="rv-intro"></p>
+        <div class="row"><label for="rv-reviewer">Name</label><input type="text" id="rv-reviewer" placeholder="name and qualification" maxlength="80"></div>
+        <div class="row"><label for="rv-filter">Show</label><select id="rv-filter"></select></div>
+        <p class="muted small" id="rv-progress"></p>
+        <div class="quiz-head"><span id="rv-count"></span><span id="rv-done"></span></div>
+        <progress id="rv-bar" value="0" max="1"></progress>
+        <p id="rv-empty" class="muted" hidden>Nothing matches this filter.</p>
+        <div id="rv-item">
+          <div class="card">
+            <h2 id="rv-name"></h2>
+            <p id="rv-kind" class="muted"></p>
+            <div id="rv-stages"></div>
+            <div class="seg wide" id="rv-outline"><button data-v="accept">Correct</button><button data-v="fix">Needs fixing</button><button data-v="reject">Wrong</button></div>
+          </div>
+          <div class="card">
+            <p class="muted">Text shown to students. Edit it directly if you like, then give a verdict.</p>
+            <textarea id="rv-summary" rows="5" maxlength="1500" aria-label="Description"></textarea>
+            <textarea id="rv-tip" rows="4" maxlength="1500" aria-label="How to find it on CT"></textarea>
+            <div class="seg wide" id="rv-text"><button data-v="accept">Text is correct</button><button data-v="edit">Needs rewriting</button></div>
+          </div>
+          <textarea id="rv-comment" rows="2" maxlength="1500" placeholder="Comment (optional)"></textarea>
+          <div class="btn-row"><button id="rv-prev" class="ghost">Back</button><button id="rv-next">Save and next</button></div>
+          <button id="rv-open" class="ghost">Jump to next without a verdict</button>
+        </div>
+        <button id="rv-download" class="ghost">Download review file</button>
+        <p id="rv-status" class="muted">Verdicts are saved to web/assets/anatomy/reviews/ for this scan.</p>
+      </section>
+
+      <section id="mode-landmarks" class="stage" hidden>
+        <p><strong>Place named points</strong> on this scan: openings, canals and bony landmarks that have no outline.
+           They then appear in Explore and in the Quiz.</p>
+        <p class="muted">For whoever knows the anatomy. Nothing here is placed automatically.</p>
+        <select id="lm-select"></select>
+        <input type="text" id="lm-custom" placeholder="Landmark name" maxlength="80" hidden>
+        <div id="lm-tip" class="card" hidden></div>
+        <p class="muted">1. Move the crosshair onto the spot in all three views. 2. Press the button.
+           Paired landmarks take their side from where the crosshair is; placing the same one again moves it.</p>
+        <div class="row"><label for="lm-author">Placed by</label><input type="text" id="lm-author" placeholder="initials (optional)" maxlength="80"></div>
+        <button id="lm-place" class="primary">Place at crosshair</button>
+        <p id="lm-msg" class="muted"></p>
+        <h3>On this scan <span id="lm-count"></span></h3>
+        <div id="lm-placed"></div>
+        <button id="lm-save" class="primary">Save landmarks</button>
+        <p id="lm-status" class="muted">Saved landmarks are written to web/assets/anatomy/landmarks/ and marked unreviewed.</p>
+      </section>
+
+      <footer class="panel-foot" id="disclaimer-line">Educational tool, not for clinical use.</footer>
+    </aside>
+
+    <main id="quad">
+      <div class="pane" data-view="axial"><canvas></canvas><span class="tag">Axial</span><span class="pos"></span><div class="zoom"><button data-zoom="out" title="Zoom out">&minus;</button><button data-zoom="fit" title="Fit to pane (or double-click)">Fit</button><button data-zoom="in" title="Zoom in">+</button></div>
+        <span class="ori l">R</span><span class="ori r">L</span><span class="ori t">A</span><span class="ori b">P</span></div>
+      <div class="pane pane3d"><canvas id="canvas3d"></canvas><span class="tag">3D</span>
+        <div class="views"><button data-look="front">Front</button><button data-look="left">Left</button><button data-look="right">Right</button><button data-look="top">Top</button><button data-look="back">Back</button></div>
+        <div id="cover3d" hidden>3D model hidden until you answer</div></div>
+      <div class="pane" data-view="coronal"><canvas></canvas><span class="tag">Coronal</span><span class="pos"></span><div class="zoom"><button data-zoom="out" title="Zoom out">&minus;</button><button data-zoom="fit" title="Fit to pane (or double-click)">Fit</button><button data-zoom="in" title="Zoom in">+</button></div>
+        <span class="ori l">R</span><span class="ori r">L</span><span class="ori t">S</span><span class="ori b">I</span></div>
+      <div class="pane" data-view="sagittal"><canvas></canvas><span class="tag">Sagittal</span><span class="pos"></span><div class="zoom"><button data-zoom="out" title="Zoom out">&minus;</button><button data-zoom="fit" title="Fit to pane (or double-click)">Fit</button><button data-zoom="in" title="Zoom in">+</button></div>
+        <span class="ori l">A</span><span class="ori r">P</span><span class="ori t">S</span><span class="ori b">I</span></div>
+      <div id="loading">Loading scan ...</div>
+    </main>
+  </div>
+
+  <dialog id="about">
+    <h2>About and credits</h2>
+    <p><strong>Research and education prototype.</strong> Not a medical device and not for clinical use: do not use it
+       to diagnose, plan or treat. The anatomy outlines start as automatic drafts and are shown to students only after a
+       second reviewer has accepted them; even then they are teaching aids, not measurements.</p>
+    <h3>This scan</h3>
+    <p id="source-note"></p>
+    <p id="about-note" class="muted"></p>
+    <h3>Review</h3>
+    <p id="about-review" class="muted"></p>
+    <h3>Data and software</h3>
+    <p class="muted"><strong>Main scan.</strong> One case from: Blagosklonova E, Dolotova D, Polunina N, Grigorieva E, Pakhomov D,
+       Krylov V, Gavrilov A. <em>Open dataset of annotated DICOM images of head CTA for intracranial aneurysm detection.</em>
+       Zenodo, 2025. <a href="https://doi.org/10.5281/zenodo.15697196" target="_blank" rel="noopener">doi:10.5281/zenodo.15697196</a>.
+       Licence: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+       Data paper: <a href="https://doi.org/10.3390/data11040074" target="_blank" rel="noopener">doi:10.3390/data11040074</a>.
+       The publisher anonymised the images and removed the face. Changes made here: the case was cropped, resampled to 0.6 mm and
+       anatomy outlines were added. The original authors do not endorse this tool.</p>
+    <p class="muted"><strong>Outlines.</strong> Drafted with TotalSegmentator (Apache-2.0): Wasserthal J, et al. TotalSegmentator: robust
+       segmentation of 104 anatomic structures in CT images. <em>Radiology: Artificial Intelligence</em> 2023;5(5):e230024; built on
+       nnU-Net: Isensee F, et al. <em>Nature Methods</em> 2021;18:203-211. Some outlines come from simple rules in this project.
+       Every outline shown to students was then checked by a person.</p>
+    <p class="muted"><strong>Software.</strong> The 3D view uses three.js (MIT licence).</p>
+    <form method="dialog"><button class="primary">Close</button></form>
+  </dialog>
+
+  <dialog id="help">
+    <h2>How to use</h2>
+    <ol>
+      <li><strong>Three slice views, one 3D model.</strong> Axial looks up from the feet, coronal from the front,
+          sagittal from the side. The coloured lines show where the other two slices cut.</li>
+      <li><strong>Scroll</strong> over a slice view to move through the scan. <strong>Click or drag</strong> to move
+          the crosshair; all views follow.</li>
+      <li><strong>Zoom</strong> with the + and &minus; buttons, a pinch, or Ctrl/Cmd + scroll. <strong>Right-drag</strong>
+          (or Alt-drag) moves a zoomed slice; double-click or "Fit" resets it.</li>
+      <li><strong>Click a structure</strong> on a slice or in 3D to select it. It lights up everywhere and the card
+          on the left explains it.</li>
+      <li><strong>Click a name</strong> in the list to jump straight to that structure. Click a group title to open or close it;
+          the eye beside a name shows or hides that one structure, and the group's checkbox does the whole group.
+          <strong>Show only this</strong> on the card isolates a structure; <strong>Show all</strong> puts things back.</li>
+      <li><strong>CT window</strong> changes the brightness range: "Bone" for bone detail, "Soft tissue" for glands
+          and muscles, "Brain" for the brain.</li>
+      <li><strong>Yellow dots</strong> are named points for openings and canals that have no outline. A dot shows on a
+          slice when the slice passes through it.</li>
+      <li><strong>Quiz</strong> tests you both ways: finding a named structure on the slices, and naming a
+          highlighted one.</li>
+    </ol>
+    <p class="muted">On screen, the patient's right is on the left of the axial and coronal views, as in radiology.
+       Slices are 2.5 mm apart in the original scan, so coronal and sagittal views look softer than axial.
+       "Sharpen edges" makes borders crisper but also exaggerates noise and can draw faint halos that are not anatomy.</p>
+    <p class="muted author-only" hidden>Author mode (<code>?author=1</code>) also shows unreviewed drafts, the Landmarks tab for placing points
+       and the Review tab (author pre-check, then radiologist sign-off). Students use the plain address and see only
+       structures whose outline the reviewer marked Correct.</p>
+    <p class="muted">Educational tool, not for clinical use.</p>
+    <form method="dialog"><button class="primary">Close</button></form>
+  </dialog>
+
+  <script type="module" src="js/anatomy/main.js"></script>
+</body>
+</html>

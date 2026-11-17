@@ -1,0 +1,550 @@
+{
+  "Skull": {
+    "summary": "The bones of the cranium and face: the vault around the brain, the skull base, and the facial skeleton including the upper jaw (maxilla), cheekbones and the upper teeth. The lower jaw is shown separately.",
+    "ct_tip": "Bone is the brightest tissue on CT. Switch to the Bone window to see the thin plates of the sinuses and the dense petrous bone around the inner ear.",
+    "reviewed": false
+  },
+  "Cervical-Spine": {
+    "summary": "The seven neck vertebrae (C1 to C7), which carry the head and protect the spinal cord. C1 (atlas) and C2 (axis) are specialised for nodding and turning the head. In this model the lowest part may include the first thoracic vertebrae.",
+    "ct_tip": "On a midline sagittal slice the vertebral bodies stack like blocks in front of the spinal canal. The peg of C2 (the dens) points up just behind the front arch of C1.",
+    "reviewed": false
+  },
+  "Airway": {
+    "summary": "All the air-filled spaces: the paranasal sinuses and nasal cavity, the throat (pharynx), the voice box (larynx) and the windpipe (trachea). Air cells in the mastoid bone behind the ear are included too.",
+    "ct_tip": "Air is black on every CT window. Follow the black column down from the nose on a sagittal slice: nasal cavity, pharynx behind the tongue, then larynx and trachea in front of the spine.",
+    "reviewed": false,
+    "scans": {
+      "cta060": {
+        "summary": "Air spaces that have not yet been given their own name on this scan, mainly the sphenoid sinus and the ethmoid air cells. Named spaces such as the nasal cavity, pharynx and trachea are listed separately.",
+        "ct_tip": "Air is black on every CT window.",
+        "reviewed": false
+      }
+    }
+  },
+  "Brain": {
+    "summary": "The cerebrum and cerebellum inside the skull vault. The brainstem is labelled separately.",
+    "ct_tip": "Use the Brain window. Grey matter is slightly brighter than white matter, and the fluid-filled ventricles in the middle are darker than both.",
+    "reviewed": false
+  },
+  "Brainstem": {
+    "summary": "The stalk connecting the brain to the spinal cord, made up of the midbrain, pons and medulla. It controls breathing, heart rate and consciousness, and most cranial nerves arise from it.",
+    "ct_tip": "On a midline sagittal slice it runs down in front of the cerebellum and leaves the skull through the large opening in the skull base (foramen magnum), where it becomes the spinal cord.",
+    "reviewed": false
+  },
+  "Spinal-Canal": {
+    "summary": "The bony tunnel formed by the vertebrae. It contains the spinal cord, its coverings and the fluid around it.",
+    "ct_tip": "On an axial slice it is the round to triangular grey space directly behind each vertebral body, ringed by bone.",
+    "reviewed": false
+  },
+  "Spinal-Cord": {
+    "summary": "The bundle of nerve tissue running from the brainstem down inside the spinal canal, carrying signals between the brain and the body.",
+    "ct_tip": "It sits in the middle of the spinal canal and is only slightly brighter than the fluid around it, so on CT its edge is hard to see. MRI shows it far better.",
+    "reviewed": false
+  },
+  "Optic-Nerve-Lt": {
+    "summary": "The nerve of vision for the left eye. It runs from the back of the eyeball through the orbit and the optic canal to meet its partner at the optic chiasm.",
+    "ct_tip": "On an axial slice through the eyes it is a thin grey band running backwards and towards the midline from the eyeball, surrounded by darker orbital fat.",
+    "reviewed": false
+  },
+  "Optic-Nerve-Rt": {
+    "summary": "The nerve of vision for the right eye. It runs from the back of the eyeball through the orbit and the optic canal to meet its partner at the optic chiasm.",
+    "ct_tip": "On an axial slice through the eyes it is a thin grey band running backwards and towards the midline from the eyeball, surrounded by darker orbital fat.",
+    "reviewed": false
+  },
+  "Orbit-Lt": {
+    "summary": "The left eyeball (globe). The source data set calls this label \"orbit\", but it outlines the globe itself, not the whole bony eye socket.",
+    "ct_tip": "A round grey ball at the front of the eye socket, with the bright oval lens just behind its front surface.",
+    "reviewed": false
+  },
+  "Orbit-Rt": {
+    "summary": "The right eyeball (globe). The source data set calls this label \"orbit\", but it outlines the globe itself, not the whole bony eye socket.",
+    "ct_tip": "A round grey ball at the front of the eye socket, with the bright oval lens just behind its front surface.",
+    "reviewed": false
+  },
+  "Lens-Lt": {
+    "summary": "The lens of the left eye, which focuses light onto the retina. It is sensitive to radiation, which is why it is outlined in radiotherapy planning.",
+    "ct_tip": "A small bright oval at the front of the eyeball. It is denser than the fluid around it, so it stands out clearly.",
+    "reviewed": false
+  },
+  "Lens-Rt": {
+    "summary": "The lens of the right eye, which focuses light onto the retina. It is sensitive to radiation, which is why it is outlined in radiotherapy planning.",
+    "ct_tip": "A small bright oval at the front of the eyeball. It is denser than the fluid around it, so it stands out clearly.",
+    "reviewed": false
+  },
+  "Lacrimal-Lt": {
+    "summary": "The left tear gland. It sits in the upper outer corner of the eye socket and keeps the surface of the eye moist.",
+    "ct_tip": "A small almond-shaped soft tissue structure above and to the outer side of the eyeball, tucked against the bony roof of the orbit. Easiest to see on a coronal slice.",
+    "reviewed": false
+  },
+  "Lacrimal-Rt": {
+    "summary": "The right tear gland. It sits in the upper outer corner of the eye socket and keeps the surface of the eye moist.",
+    "ct_tip": "A small almond-shaped soft tissue structure above and to the outer side of the eyeball, tucked against the bony roof of the orbit. Easiest to see on a coronal slice.",
+    "reviewed": false
+  },
+  "Cochlea-Lt": {
+    "summary": "The spiral organ of hearing in the left inner ear, buried in the petrous part of the temporal bone.",
+    "ct_tip": "Use the Bone window. It is a tiny dark (fluid-filled) spiral inside the very dense bone of the skull base, in front of and towards the midline from the middle ear. At this scan's slice spacing only a few voxels of it are visible.",
+    "reviewed": false
+  },
+  "Cochlea-Rt": {
+    "summary": "The spiral organ of hearing in the right inner ear, buried in the petrous part of the temporal bone.",
+    "ct_tip": "Use the Bone window. It is a tiny dark (fluid-filled) spiral inside the very dense bone of the skull base, in front of and towards the midline from the middle ear. At this scan's slice spacing only a few voxels of it are visible.",
+    "reviewed": false
+  },
+  "Parotid-Lt": {
+    "summary": "The largest salivary gland, on the left. It lies in front of and below the ear, wrapping around the back edge of the lower jaw. The facial nerve runs through it, which matters in parotid surgery.",
+    "ct_tip": "On an axial slice at the level of the jaw joint or just below, it is the soft tissue between the back edge of the mandible and the mastoid. It contains fat, so it looks a little darker than muscle.",
+    "reviewed": false
+  },
+  "Parotid-Rt": {
+    "summary": "The largest salivary gland, on the right. It lies in front of and below the ear, wrapping around the back edge of the lower jaw. The facial nerve runs through it, which matters in parotid surgery.",
+    "ct_tip": "On an axial slice at the level of the jaw joint or just below, it is the soft tissue between the back edge of the mandible and the mastoid. It contains fat, so it looks a little darker than muscle.",
+    "reviewed": false
+  },
+  "Submandibular-Lt": {
+    "summary": "The left submandibular salivary gland, the second largest. It sits under the body of the lower jaw towards its angle and drains into the floor of the mouth.",
+    "ct_tip": "On an axial slice just below the lower border of the mandible, it is an oval soft tissue structure on the inner side of the jaw. It is usually a little brighter than the parotid because it contains less fat.",
+    "reviewed": false
+  },
+  "Submandibular-Rt": {
+    "summary": "The right submandibular salivary gland, the second largest. It sits under the body of the lower jaw towards its angle and drains into the floor of the mouth.",
+    "ct_tip": "On an axial slice just below the lower border of the mandible, it is an oval soft tissue structure on the inner side of the jaw. It is usually a little brighter than the parotid because it contains less fat.",
+    "reviewed": false
+  },
+  "Mandible": {
+    "summary": "The lower jaw: a horseshoe-shaped body carrying the lower teeth, with a vertical ramus on each side ending in the condyle, which forms the jaw joint with the skull base.",
+    "ct_tip": "On an axial slice it is a bright U open towards the back. On higher slices only the two rami remain, one on each side, and at the top each ends in a condyle sitting just in front of the ear canal.",
+    "reviewed": false
+  },
+  "Lung-Lt": {
+    "summary": "The top (apex) of the left lung, which rises above the first rib into the root of the neck. Only the part inside the scan range is shown.",
+    "ct_tip": "Black like other air, at the bottom of the scan on either side of the spine and windpipe.",
+    "reviewed": false
+  },
+  "Lung-Rt": {
+    "summary": "The top (apex) of the right lung, which rises above the first rib into the root of the neck. Only the part inside the scan range is shown.",
+    "ct_tip": "Black like other air, at the bottom of the scan on either side of the spine and windpipe.",
+    "reviewed": false
+  },
+  "Mastoid-Lt": {
+    "summary": "Air-filled spaces of the left temporal bone: the honeycomb of mastoid air cells behind the ear and the middle ear cavity, which holds the three hearing bones. They connect to the back of the nose through the Eustachian tube. This outline is automatic and does not separate the mastoid cells from the middle ear.",
+    "ct_tip": "Use the Bone window. On an axial slice at the level of the ear canal, look behind and to the outer side of the dense petrous bone for a cluster of small black pockets separated by thin white walls. In infection or fluid they turn grey.",
+    "reviewed": false
+  },
+  "Mastoid-Rt": {
+    "summary": "Air-filled spaces of the right temporal bone: the honeycomb of mastoid air cells behind the ear and the middle ear cavity, which holds the three hearing bones. They connect to the back of the nose through the Eustachian tube. This outline is automatic and does not separate the mastoid cells from the middle ear.",
+    "ct_tip": "Use the Bone window. On an axial slice at the level of the ear canal, look behind and to the outer side of the dense petrous bone for a cluster of small black pockets separated by thin white walls. In infection or fluid they turn grey.",
+    "reviewed": false
+  },
+  "Intracranial": {
+    "summary": "The space inside the skull that holds the brain, its coverings and the fluid around it. On this bone-detail scan the brain itself cannot be judged, so only the cavity is outlined; the outline is automatic and extends a few millimetres into the opening at the skull base.",
+    "ct_tip": "Its floor is not flat: from front to back there are three steps, the anterior, middle and posterior cranial fossae. Scroll an axial view downwards and watch the cavity split into these compartments as the skull base appears.",
+    "reviewed": false,
+    "scans": {
+      "cta060": {
+        "summary": "The space inside the skull that holds the brain, its coverings and the fluid around it. The brain is not yet divided into named parts on this scan.",
+        "ct_tip": "Use the Brain window to see grey and white matter. With contrast, the arteries at the base of the brain and the veins over its surface are bright.",
+        "reviewed": false
+      }
+    }
+  },
+  "Bones": {
+    "summary": "All the bone in this scan as one object: skull and facial bones, lower jaw, the neck and upper chest vertebrae, the hyoid, collarbones, upper ribs and breastbone. On this scan the bones are not yet separated from one another. Calcified patches in artery walls are also bright and may be included.",
+    "ct_tip": "Bone is the brightest tissue. On a contrast scan like this one the arteries are nearly as bright, so tell them apart by shape and position: vessels are smooth tubes running up the neck, bone has a dense white rim around a greyer centre.",
+    "reviewed": false,
+    "scans": {
+      "cta060": {
+        "summary": "Bone that has not yet been given its own name on this scan: the skull and facial bones, the chest vertebrae, breastbone and shoulder bones. Named bones such as the neck vertebrae and the mandible are listed separately.",
+        "ct_tip": "Bone is the brightest tissue. On this contrast scan arteries are nearly as bright, so tell them apart by shape: vessels are smooth tubes, bone has a dense rim around a greyer centre.",
+        "reviewed": false
+      }
+    }
+  },
+  "Vessels": {
+    "summary": "Arteries and veins made bright by contrast dye injected into a vein before the scan. In the neck the main ones are the common carotid arteries, which split into internal and external carotids at about the level of the upper larynx, the internal jugular veins beside them, and the vertebral arteries running up through the neck vertebrae. This outline is automatic: arteries and veins are not separated, and stretches that run through bone are missing.",
+    "ct_tip": "On an axial slice of the mid neck, look on each side of the airway for two bright round dots lying together: the carotid artery towards the midline and the larger, often oval jugular vein to its outer side. Scroll up and watch the carotid divide into two.",
+    "reviewed": false,
+    "scans": {
+      "cta060": {
+        "summary": "Contrast-filled arteries and veins that have not yet been given their own name on this scan, including the vertebral arteries, the vessels inside the skull and smaller branches.",
+        "ct_tip": "Follow a named artery upward: where its coloured outline stops and this one begins, the vessel has not been named yet.",
+        "reviewed": false
+      }
+    }
+  },
+  "C1": {
+    "summary": "The atlas, the ring-shaped first neck vertebra. It has no body and carries the skull on two side masses.",
+    "ct_tip": "On an axial slice just below the skull base it is a bony ring with the dens of C2 sitting inside its front part.",
+    "reviewed": false
+  },
+  "C2": {
+    "summary": "The axis, the second neck vertebra. Its upward peg, the dens, is the pivot the head turns around.",
+    "ct_tip": "On a midline sagittal slice look for the tooth-like dens rising behind the front arch of C1.",
+    "reviewed": false
+  },
+  "C3": {
+    "summary": "The third neck vertebra, usually level with the hyoid bone.",
+    "ct_tip": "Count down from C2 on a sagittal slice; the body of C3 is the first ordinary block-shaped one.",
+    "reviewed": false
+  },
+  "C4": {
+    "summary": "The fourth neck vertebra. The common carotid artery usually divides at about the C3 to C4 level.",
+    "ct_tip": "Count down from C2 on a sagittal slice; C4 lies behind the upper thyroid cartilage.",
+    "reviewed": false
+  },
+  "C5": {
+    "summary": "The fifth neck vertebra, roughly level with the thyroid cartilage.",
+    "ct_tip": "Count down from C2 on a sagittal slice; C5 lies behind the middle of the larynx.",
+    "reviewed": false
+  },
+  "C6": {
+    "summary": "The sixth neck vertebra, level with the cricoid cartilage, where the larynx becomes the trachea and the pharynx becomes the esophagus.",
+    "ct_tip": "Count down from C2 on a sagittal slice; C6 lies behind the cricoid ring.",
+    "reviewed": false
+  },
+  "C7": {
+    "summary": "The seventh neck vertebra, with the long spinous process you can feel at the base of the neck.",
+    "ct_tip": "On a sagittal slice it has the longest spinous process of the neck vertebrae and sits just above the first rib-bearing vertebra.",
+    "reviewed": false
+  },
+  "Hyoid": {
+    "summary": "A U-shaped bone in the front of the neck above the larynx. It joins no other bone and anchors the tongue and larynx muscles.",
+    "ct_tip": "On an axial slice at about C3 it is a thin bright horseshoe open to the back, just in front of the airway.",
+    "reviewed": false
+  },
+  "Clavicle-Lt": {
+    "summary": "The left collarbone, joining the breastbone to the shoulder blade. Only its inner end is inside this scan.",
+    "ct_tip": "At the bottom of the scan it is the bright bar running outwards from the top of the breastbone.",
+    "reviewed": false
+  },
+  "Clavicle-Rt": {
+    "summary": "The right collarbone, joining the breastbone to the shoulder blade. Only its inner end is inside this scan.",
+    "ct_tip": "At the bottom of the scan it is the bright bar running outwards from the top of the breastbone.",
+    "reviewed": false
+  },
+  "Zygomatic-Arch-Lt": {
+    "summary": "The left bony bridge between cheekbone and temple that you can feel in front of the ear. The masseter muscle hangs from it.",
+    "ct_tip": "On an axial slice at the level of the jaw joint it is a thin bar standing off the side of the skull.",
+    "reviewed": false
+  },
+  "Zygomatic-Arch-Rt": {
+    "summary": "The right bony bridge between cheekbone and temple that you can feel in front of the ear. The masseter muscle hangs from it.",
+    "ct_tip": "On an axial slice at the level of the jaw joint it is a thin bar standing off the side of the skull.",
+    "reviewed": false
+  },
+  "Styloid-Process-Lt": {
+    "summary": "A thin spike of bone pointing down and forwards from the underside of the left temporal bone. Tongue and throat muscles attach to it.",
+    "ct_tip": "On axial slices below the ear canal it is a small bright dot that moves forwards and inwards as you scroll down.",
+    "reviewed": false
+  },
+  "Styloid-Process-Rt": {
+    "summary": "A thin spike of bone pointing down and forwards from the underside of the right temporal bone. Tongue and throat muscles attach to it.",
+    "ct_tip": "On axial slices below the ear canal it is a small bright dot that moves forwards and inwards as you scroll down.",
+    "reviewed": false
+  },
+  "Rib-1-Lt": {
+    "summary": "The left first rib, a short, flat, tightly curved rib. The subclavian artery and vein cross over it.",
+    "ct_tip": "At the bottom of the scan it curves from the first chest vertebra forwards around the top of the lung.",
+    "reviewed": false
+  },
+  "Rib-1-Rt": {
+    "summary": "The right first rib, a short, flat, tightly curved rib. The subclavian artery and vein cross over it.",
+    "ct_tip": "At the bottom of the scan it curves from the first chest vertebra forwards around the top of the lung.",
+    "reviewed": false
+  },
+  "Nasal-Cavity-Lt": {
+    "summary": "The left half of the nasal cavity, separated from the other half by the nasal septum and lined by the scroll-shaped turbinates.",
+    "ct_tip": "On a coronal slice it is the tall air space beside the midline septum, with curled turbinates projecting into it.",
+    "reviewed": false
+  },
+  "Nasal-Cavity-Rt": {
+    "summary": "The right half of the nasal cavity, separated from the other half by the nasal septum and lined by the scroll-shaped turbinates.",
+    "ct_tip": "On a coronal slice it is the tall air space beside the midline septum, with curled turbinates projecting into it.",
+    "reviewed": false
+  },
+  "Nasopharynx": {
+    "summary": "The top part of the throat, behind the nose and above the soft palate. The Eustachian tubes open into its side walls.",
+    "ct_tip": "On a midline sagittal slice it is the air space behind the nasal cavity and above the soft palate.",
+    "reviewed": false
+  },
+  "Oropharynx": {
+    "summary": "The middle part of the throat, behind the mouth, from the soft palate down to the level of the hyoid. It contains the tonsils and the base of the tongue.",
+    "ct_tip": "On a midline sagittal slice it is the air space behind the tongue.",
+    "reviewed": false
+  },
+  "Hypopharynx": {
+    "summary": "The lowest part of the throat, behind and around the larynx, leading into the esophagus.",
+    "ct_tip": "On an axial slice at the level of the larynx it is the thin air space behind the larynx, with a recess (piriform sinus) on each side.",
+    "reviewed": false
+  },
+  "Larynx": {
+    "summary": "The air passage of the voice box, from the epiglottis down through the vocal cords to the cricoid cartilage.",
+    "ct_tip": "On an axial slice between the wings of the thyroid cartilage it is the air column that narrows to a slit at the vocal cords.",
+    "reviewed": false
+  },
+  "Thyroid-Cartilage": {
+    "summary": "The largest cartilage of the larynx, shaped like a shield open at the back. Its front point is the Adam's apple.",
+    "ct_tip": "On an axial slice it is an upside-down V in front of the airway. In adults it is often partly calcified, so it can look patchy.",
+    "reviewed": false
+  },
+  "Cricoid-Cartilage": {
+    "summary": "The only complete ring of cartilage around the airway, at the bottom of the larynx at about C6.",
+    "ct_tip": "On an axial slice just below the thyroid cartilage it is a full ring, taller at the back than the front.",
+    "reviewed": false
+  },
+  "Trachea": {
+    "summary": "The windpipe, running from the cricoid cartilage down into the chest in front of the esophagus.",
+    "ct_tip": "On an axial slice of the lower neck it is the round black air column in the midline with the thyroid gland wrapped around its front and sides.",
+    "reviewed": false
+  },
+  "Maxillary-Sinus-Lt": {
+    "summary": "The left maxillary sinus, the largest paranasal sinus, inside the upper jaw below the orbit.",
+    "ct_tip": "On an axial slice below the orbits it is the large triangular air space beside the nasal cavity.",
+    "reviewed": false
+  },
+  "Maxillary-Sinus-Rt": {
+    "summary": "The right maxillary sinus, the largest paranasal sinus, inside the upper jaw below the orbit.",
+    "ct_tip": "On an axial slice below the orbits it is the large triangular air space beside the nasal cavity.",
+    "reviewed": false
+  },
+  "Frontal-Sinus": {
+    "summary": "Air cavities in the frontal bone above the eyes. Their size varies a lot and the two sides are often unequal.",
+    "ct_tip": "On an axial slice just above the orbits they are air spaces inside the forehead bone near the midline.",
+    "reviewed": false
+  },
+  "Hard-Palate": {
+    "summary": "The bony front part of the roof of the mouth, separating the mouth from the nasal cavity.",
+    "ct_tip": "On a midline sagittal slice it is the horizontal plate of bone between the nasal cavity above and the tongue below.",
+    "reviewed": false
+  },
+  "Soft-Palate": {
+    "summary": "The muscular back part of the roof of the mouth, ending in the uvula. It lifts to close off the nose when swallowing.",
+    "ct_tip": "On a midline sagittal slice it is the soft tissue flap hanging down and back from the end of the hard palate.",
+    "reviewed": false
+  },
+  "Aorta": {
+    "summary": "The arch of the aorta, the main artery leaving the heart. Its three branches supply the head, neck and arms.",
+    "ct_tip": "At the very bottom of the scan it is the largest bright vessel, lying to the left of the trachea.",
+    "reviewed": false
+  },
+  "Brachiocephalic-Trunk": {
+    "summary": "The first branch of the aortic arch. It divides behind the right collarbone joint into the right common carotid and right subclavian arteries.",
+    "ct_tip": "At the bottom of the scan it is the bright vessel in front of the trachea running up and to the right.",
+    "reviewed": false
+  },
+  "Common-Carotid-Lt": {
+    "summary": "The left common carotid artery, the main artery of the head and neck. It divides into the internal and external carotid arteries at about C3 to C4.",
+    "ct_tip": "On an axial slice of the mid neck it is the bright round vessel beside the airway, with the larger jugular vein to its outer side.",
+    "reviewed": false
+  },
+  "Common-Carotid-Rt": {
+    "summary": "The right common carotid artery, the main artery of the head and neck. It divides into the internal and external carotid arteries at about C3 to C4.",
+    "ct_tip": "On an axial slice of the mid neck it is the bright round vessel beside the airway, with the larger jugular vein to its outer side.",
+    "reviewed": false
+  },
+  "Internal-Carotid-Lt": {
+    "summary": "The left internal carotid artery, which supplies the brain and eye. It has no branches in the neck.",
+    "ct_tip": "Above the bifurcation it is the vessel that lies further back and to the outer side, and it runs straight up to the skull base.",
+    "reviewed": false
+  },
+  "Internal-Carotid-Rt": {
+    "summary": "The right internal carotid artery, which supplies the brain and eye. It has no branches in the neck.",
+    "ct_tip": "Above the bifurcation it is the vessel that lies further back and to the outer side, and it runs straight up to the skull base.",
+    "reviewed": false
+  },
+  "External-Carotid-Lt": {
+    "summary": "The left external carotid artery, which supplies the face, scalp, tongue and thyroid through several branches in the neck.",
+    "ct_tip": "Above the bifurcation it is the vessel that lies further forward and inward, and it gives off branches as you scroll up.",
+    "reviewed": false
+  },
+  "External-Carotid-Rt": {
+    "summary": "The right external carotid artery, which supplies the face, scalp, tongue and thyroid through several branches in the neck.",
+    "ct_tip": "Above the bifurcation it is the vessel that lies further forward and inward, and it gives off branches as you scroll up.",
+    "reviewed": false
+  },
+  "Subclavian-Artery-Lt": {
+    "summary": "The left subclavian artery, the main artery to the arm. It also gives off the vertebral artery to the brain.",
+    "ct_tip": "At the bottom of the scan it arches outwards over the top of the lung and the first rib.",
+    "reviewed": false
+  },
+  "Subclavian-Artery-Rt": {
+    "summary": "The right subclavian artery, the main artery to the arm. It also gives off the vertebral artery to the brain.",
+    "ct_tip": "At the bottom of the scan it arches outwards over the top of the lung and the first rib.",
+    "reviewed": false
+  },
+  "Internal-Jugular-Lt": {
+    "summary": "The left internal jugular vein, the main vein draining the brain and face. It runs down the neck beside the carotid artery.",
+    "ct_tip": "On an axial slice of the neck it is the large, often oval vessel on the outer side of the carotid artery. The two sides are often unequal.",
+    "reviewed": false
+  },
+  "Internal-Jugular-Rt": {
+    "summary": "The right internal jugular vein, the main vein draining the brain and face. It runs down the neck beside the carotid artery.",
+    "ct_tip": "On an axial slice of the neck it is the large, often oval vessel on the outer side of the carotid artery. The two sides are often unequal.",
+    "reviewed": false
+  },
+  "Brachiocephalic-Vein-Lt": {
+    "summary": "The left brachiocephalic vein, formed where the internal jugular and subclavian veins join. The two unite to form the superior vena cava.",
+    "ct_tip": "At the bottom of the scan it lies behind the inner end of the collarbone, in front of the arteries.",
+    "reviewed": false
+  },
+  "Brachiocephalic-Vein-Rt": {
+    "summary": "The right brachiocephalic vein, formed where the internal jugular and subclavian veins join. The two unite to form the superior vena cava.",
+    "ct_tip": "At the bottom of the scan it lies behind the inner end of the collarbone, in front of the arteries.",
+    "reviewed": false
+  },
+  "Thyroid-Gland": {
+    "summary": "A butterfly-shaped hormone gland with two lobes joined by a bridge (isthmus) in front of the upper trachea.",
+    "ct_tip": "On an axial slice of the lower neck it wraps around the front and sides of the trachea. It is naturally brighter than muscle because it contains iodine.",
+    "reviewed": false
+  },
+  "Sternocleidomastoid-Lt": {
+    "summary": "The left sternocleidomastoid, the strap of muscle running from behind the ear to the collarbone and breastbone. It is the surgeon's key landmark in the neck.",
+    "ct_tip": "On an axial slice it is the flat band of muscle under the skin at the side of the neck, covering the carotid artery and jugular vein.",
+    "reviewed": false
+  },
+  "Sternocleidomastoid-Rt": {
+    "summary": "The right sternocleidomastoid, the strap of muscle running from behind the ear to the collarbone and breastbone. It is the surgeon's key landmark in the neck.",
+    "ct_tip": "On an axial slice it is the flat band of muscle under the skin at the side of the neck, covering the carotid artery and jugular vein.",
+    "reviewed": false
+  },
+  "Tongue": {
+    "summary": "The muscular organ filling the floor of the mouth. Its back third faces the throat.",
+    "ct_tip": "On a midline sagittal slice it is the large rounded mass of muscle between the jaw and the oropharynx.",
+    "reviewed": false
+  },
+  "Esophagus": {
+    "summary": "The muscular tube carrying food from the throat to the stomach. It starts at the level of the cricoid cartilage.",
+    "ct_tip": "On an axial slice of the lower neck it is a small, usually collapsed tube directly behind the trachea, in front of the spine.",
+    "reviewed": false
+  },
+  "Masseter-Lt": {
+    "summary": "The left masseter, the main chewing muscle, running from the zygomatic arch to the angle of the jaw.",
+    "ct_tip": "On an axial slice it is the thick muscle lying on the outer surface of the ramus of the mandible.",
+    "reviewed": false
+  },
+  "Masseter-Rt": {
+    "summary": "The right masseter, the main chewing muscle, running from the zygomatic arch to the angle of the jaw.",
+    "ct_tip": "On an axial slice it is the thick muscle lying on the outer surface of the ramus of the mandible.",
+    "reviewed": false
+  },
+  "Temporalis-Lt": {
+    "summary": "The left temporalis, a fan-shaped chewing muscle on the side of the skull that inserts on the coronoid process of the jaw.",
+    "ct_tip": "On an axial slice above the zygomatic arch it is the muscle lying against the side of the skull in the temple.",
+    "reviewed": false
+  },
+  "Temporalis-Rt": {
+    "summary": "The right temporalis, a fan-shaped chewing muscle on the side of the skull that inserts on the coronoid process of the jaw.",
+    "ct_tip": "On an axial slice above the zygomatic arch it is the muscle lying against the side of the skull in the temple.",
+    "reviewed": false
+  },
+  "Medial-Pterygoid-Lt": {
+    "summary": "The left medial pterygoid, a chewing muscle on the inner side of the jaw that closes the mouth.",
+    "ct_tip": "On an axial slice it lies on the inner surface of the ramus of the mandible, mirroring the masseter on the outside.",
+    "reviewed": false
+  },
+  "Medial-Pterygoid-Rt": {
+    "summary": "The right medial pterygoid, a chewing muscle on the inner side of the jaw that closes the mouth.",
+    "ct_tip": "On an axial slice it lies on the inner surface of the ramus of the mandible, mirroring the masseter on the outside.",
+    "reviewed": false
+  },
+  "Lateral-Pterygoid-Lt": {
+    "summary": "The left lateral pterygoid, the chewing muscle that pulls the jaw forwards and opens the mouth.",
+    "ct_tip": "On an axial slice at the level of the jaw joint it runs almost horizontally from the skull base to the neck of the mandible.",
+    "reviewed": false
+  },
+  "Lateral-Pterygoid-Rt": {
+    "summary": "The right lateral pterygoid, the chewing muscle that pulls the jaw forwards and opens the mouth.",
+    "ct_tip": "On an axial slice at the level of the jaw joint it runs almost horizontally from the skull base to the neck of the mandible.",
+    "reviewed": false
+  },
+  "Anterior-Scalene-Lt": {
+    "summary": "The left anterior scalene, a deep neck muscle running from the neck vertebrae to the first rib. The subclavian artery and the brachial plexus pass behind it.",
+    "ct_tip": "On an axial slice of the lower neck it is a small muscle behind the sternocleidomastoid and in front of the nerve roots.",
+    "reviewed": false
+  },
+  "Anterior-Scalene-Rt": {
+    "summary": "The right anterior scalene, a deep neck muscle running from the neck vertebrae to the first rib. The subclavian artery and the brachial plexus pass behind it.",
+    "ct_tip": "On an axial slice of the lower neck it is a small muscle behind the sternocleidomastoid and in front of the nerve roots.",
+    "reviewed": false
+  },
+  "Middle-Scalene-Lt": {
+    "summary": "The left middle scalene, a deep neck muscle from the neck vertebrae to the first rib, behind the brachial plexus.",
+    "ct_tip": "On an axial slice of the lower neck it lies just behind the anterior scalene, with the nerve roots between the two.",
+    "reviewed": false
+  },
+  "Middle-Scalene-Rt": {
+    "summary": "The right middle scalene, a deep neck muscle from the neck vertebrae to the first rib, behind the brachial plexus.",
+    "ct_tip": "On an axial slice of the lower neck it lies just behind the anterior scalene, with the nerve roots between the two.",
+    "reviewed": false
+  },
+  "Trapezius-Lt": {
+    "summary": "The left trapezius, the large flat muscle of the back of the neck and shoulder.",
+    "ct_tip": "On an axial slice it is the broad muscle under the skin at the back of the neck.",
+    "reviewed": false
+  },
+  "Trapezius-Rt": {
+    "summary": "The right trapezius, the large flat muscle of the back of the neck and shoulder.",
+    "ct_tip": "On an axial slice it is the broad muscle under the skin at the back of the neck.",
+    "reviewed": false
+  },
+  "Medial-Rectus-Lt": {
+    "summary": "The left medial rectus, the eye muscle that turns the eye towards the nose.",
+    "ct_tip": "On an axial slice through the orbit it is the thin band along the inner wall, next to the ethmoid air cells.",
+    "reviewed": false
+  },
+  "Medial-Rectus-Rt": {
+    "summary": "The right medial rectus, the eye muscle that turns the eye towards the nose.",
+    "ct_tip": "On an axial slice through the orbit it is the thin band along the inner wall, next to the ethmoid air cells.",
+    "reviewed": false
+  },
+  "Lateral-Rectus-Lt": {
+    "summary": "The left lateral rectus, the eye muscle that turns the eye outwards. It is supplied by the sixth cranial nerve.",
+    "ct_tip": "On an axial slice through the orbit it is the thin band along the outer wall.",
+    "reviewed": false
+  },
+  "Lateral-Rectus-Rt": {
+    "summary": "The right lateral rectus, the eye muscle that turns the eye outwards. It is supplied by the sixth cranial nerve.",
+    "ct_tip": "On an axial slice through the orbit it is the thin band along the outer wall.",
+    "reviewed": false
+  },
+  "Superior-Rectus-Lt": {
+    "summary": "The left superior rectus, the eye muscle that turns the eye upwards.",
+    "ct_tip": "On a coronal slice behind the eyeball it is the flat band at the top of the orbit, just below the muscle that lifts the eyelid.",
+    "reviewed": false
+  },
+  "Superior-Rectus-Rt": {
+    "summary": "The right superior rectus, the eye muscle that turns the eye upwards.",
+    "ct_tip": "On a coronal slice behind the eyeball it is the flat band at the top of the orbit, just below the muscle that lifts the eyelid.",
+    "reviewed": false
+  },
+  "Inferior-Rectus-Lt": {
+    "summary": "The left inferior rectus, the eye muscle that turns the eye downwards. It can be trapped in a fracture of the orbital floor.",
+    "ct_tip": "On a coronal slice behind the eyeball it is the band at the bottom of the orbit, just above the maxillary sinus.",
+    "reviewed": false
+  },
+  "Inferior-Rectus-Rt": {
+    "summary": "The right inferior rectus, the eye muscle that turns the eye downwards. It can be trapped in a fracture of the orbital floor.",
+    "ct_tip": "On a coronal slice behind the eyeball it is the band at the bottom of the orbit, just above the maxillary sinus.",
+    "reviewed": false
+  },
+  "Lateral-Ventricle-Lt": {
+    "summary": "The left lateral ventricle, a C-shaped fluid space inside the brain hemisphere.",
+    "ct_tip": "Use the Brain window. On an axial slice it is the dark, fluid-filled space beside the midline.",
+    "reviewed": false
+  },
+  "Lateral-Ventricle-Rt": {
+    "summary": "The right lateral ventricle, a C-shaped fluid space inside the brain hemisphere.",
+    "ct_tip": "Use the Brain window. On an axial slice it is the dark, fluid-filled space beside the midline.",
+    "reviewed": false
+  },
+  "Third-Ventricle": {
+    "summary": "A narrow midline fluid space between the two halves of the thalamus.",
+    "ct_tip": "Use the Brain window. On an axial slice it is a dark vertical slit in the exact midline.",
+    "reviewed": false
+  },
+  "Fourth-Ventricle": {
+    "summary": "A tent-shaped fluid space between the brainstem in front and the cerebellum behind.",
+    "ct_tip": "Use the Brain window. On a midline sagittal slice it is the dark triangle behind the pons.",
+    "reviewed": false
+  }
+}

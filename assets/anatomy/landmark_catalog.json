@@ -1,0 +1,198 @@
+[
+ {
+  "key": "foramen-magnum",
+  "name": "Foramen magnum",
+  "paired": false,
+  "summary": "The large opening in the occipital bone at the bottom of the skull. The brainstem becomes the spinal cord here, and the vertebral arteries enter the skull through it.",
+  "ct_tip": "On a low axial slice it is the big round gap in the middle of the skull base, with the tip of the dens (C2) just in front of it. Place the point at its centre."
+ },
+ {
+  "key": "foramen-ovale",
+  "name": "Foramen ovale",
+  "paired": true,
+  "summary": "An oval opening in the greater wing of the sphenoid bone. The mandibular nerve (V3), the third branch of the trigeminal nerve, leaves the skull through it.",
+  "ct_tip": "On an axial slice through the skull base in the bone window, look in the floor of the middle cranial fossa for an oval hole, in front of and towards the midline from the smaller foramen spinosum."
+ },
+ {
+  "key": "foramen-spinosum",
+  "name": "Foramen spinosum",
+  "paired": true,
+  "summary": "A small round opening just behind and to the outer side of the foramen ovale. It carries the middle meningeal artery, the vessel torn in an extradural haematoma.",
+  "ct_tip": "Find the foramen ovale first; the foramen spinosum is the small dot immediately behind and lateral to it on the same or the next axial slice."
+ },
+ {
+  "key": "foramen-rotundum",
+  "name": "Foramen rotundum",
+  "paired": true,
+  "summary": "A short canal in the sphenoid bone carrying the maxillary nerve (V2) forwards from the middle cranial fossa to the pterygopalatine fossa.",
+  "ct_tip": "Best seen on a coronal slice through the sphenoid sinus: a small round hole on each side just beside the sinus, above and lateral to the smaller vidian canal."
+ },
+ {
+  "key": "carotid-canal",
+  "name": "Carotid canal",
+  "paired": true,
+  "summary": "The tunnel through the petrous temporal bone by which the internal carotid artery enters the skull. It runs upwards, then turns forwards and towards the midline.",
+  "ct_tip": "On an axial slice through the petrous bone it is a round or tubular channel in front of the jugular foramen and towards the midline from the cochlea. Place the point where the canal is seen as a clear round hole on the skull base."
+ },
+ {
+  "key": "jugular-foramen",
+  "name": "Jugular foramen",
+  "paired": true,
+  "summary": "An irregular opening between the temporal and occipital bones. The internal jugular vein leaves through it, together with cranial nerves IX, X and XI.",
+  "ct_tip": "On an axial slice just below the internal acoustic meatus, it is the larger irregular gap behind the carotid canal. The two sides are often unequal; the right is usually bigger."
+ },
+ {
+  "key": "hypoglossal-canal",
+  "name": "Hypoglossal canal",
+  "paired": true,
+  "summary": "A short canal through the occipital bone just above the occipital condyle. It carries the hypoglossal nerve (XII), which moves the tongue.",
+  "ct_tip": "On an axial slice at the level of the top of the occipital condyles, it runs forwards and outwards from the rim of the foramen magnum. Coronal slices show it as a hole above each condyle."
+ },
+ {
+  "key": "internal-acoustic-meatus",
+  "name": "Internal acoustic meatus",
+  "paired": true,
+  "summary": "A canal in the back surface of the petrous bone leading from the posterior cranial fossa to the inner ear. It carries the facial nerve (VII) and the nerve of hearing and balance (VIII).",
+  "ct_tip": "On an axial slice through the petrous bone it is a short, wide channel opening backwards and towards the midline, pointing at the cochlea. Place the point at its opening (the porus)."
+ },
+ {
+  "key": "external-acoustic-meatus",
+  "name": "External acoustic meatus (ear canal)",
+  "paired": true,
+  "summary": "The ear canal, running from the outer ear to the eardrum. Its outer part is cartilage and its inner part is bone.",
+  "ct_tip": "An air-filled tube running inwards from the side of the head, just behind the jaw joint. Place the point in the bony part of the canal."
+ },
+ {
+  "key": "cochlea",
+  "name": "Cochlea",
+  "paired": true,
+  "summary": "The spiral organ of hearing in the inner ear, buried in the dense petrous bone.",
+  "ct_tip": "In the bone window it is a small dark spiral of about two and a half turns in very white bone, in front of the internal acoustic meatus."
+ },
+ {
+  "key": "mastoid-process",
+  "name": "Mastoid process",
+  "paired": true,
+  "summary": "The bony lump you can feel behind the ear. It is filled with air cells and gives attachment to the sternocleidomastoid muscle.",
+  "ct_tip": "Follow the mastoid air cells downwards; the process is the downward-pointing tip of the temporal bone behind the ear canal. Place the point at its tip."
+ },
+ {
+  "key": "styloid-process",
+  "name": "Styloid process",
+  "paired": true,
+  "summary": "A thin spike of bone pointing down and forwards from the underside of the temporal bone. Muscles and ligaments of the tongue and throat attach to it.",
+  "ct_tip": "On axial slices below the ear canal it appears as a small bright dot that moves forwards and towards the midline as you scroll down. Place the point at its base."
+ },
+ {
+  "key": "stylomastoid-foramen",
+  "name": "Stylomastoid foramen",
+  "paired": true,
+  "summary": "The opening between the styloid and mastoid processes through which the facial nerve (VII) leaves the skull to reach the face.",
+  "ct_tip": "A small hole on the underside of the temporal bone just behind the base of the styloid process. It is the lower end of the facial canal."
+ },
+ {
+  "key": "occipital-condyle",
+  "name": "Occipital condyle",
+  "paired": true,
+  "summary": "A rounded knuckle on each side of the foramen magnum that rests on the first neck vertebra (atlas). Nodding the head happens at this joint.",
+  "ct_tip": "On a coronal slice through the foramen magnum the two condyles sit on top of the lateral masses of C1 like two feet on a ring."
+ },
+ {
+  "key": "optic-canal",
+  "name": "Optic canal",
+  "paired": true,
+  "summary": "A short canal in the lesser wing of the sphenoid bone carrying the optic nerve and the ophthalmic artery from the skull into the orbit.",
+  "ct_tip": "On an axial slice through the top of the orbits it is the narrow channel at the very back (apex) of the orbit, pointing backwards and towards the midline, above and medial to the superior orbital fissure."
+ },
+ {
+  "key": "superior-orbital-fissure",
+  "name": "Superior orbital fissure",
+  "paired": true,
+  "summary": "A slit between the greater and lesser wings of the sphenoid bone. The nerves that move the eye (III, IV, VI) and the ophthalmic nerve (V1) pass through it into the orbit.",
+  "ct_tip": "On a coronal slice at the back of the orbit it is a comma-shaped gap below and lateral to the round optic canal."
+ },
+ {
+  "key": "sella-turcica",
+  "name": "Sella turcica (pituitary fossa)",
+  "paired": false,
+  "summary": "A saddle-shaped hollow in the body of the sphenoid bone, in the centre of the skull base. The pituitary gland sits in it.",
+  "ct_tip": "On a midline sagittal slice it is the cup-shaped dip directly above the sphenoid sinus. Place the point in the middle of the cup."
+ },
+ {
+  "key": "clivus",
+  "name": "Clivus",
+  "paired": false,
+  "summary": "The sloping slab of bone running from the back of the sella turcica down to the front edge of the foramen magnum. The brainstem lies against it.",
+  "ct_tip": "On a midline sagittal slice it is the thick ramp of bone behind the sphenoid sinus. Place the point halfway down."
+ },
+ {
+  "key": "crista-galli",
+  "name": "Crista galli",
+  "paired": false,
+  "summary": "A midline fin of the ethmoid bone projecting up into the front of the skull. The falx cerebri, the membrane between the two brain hemispheres, attaches to it.",
+  "ct_tip": "On a coronal slice through the front of the skull base it is the upright midline spike between the two halves of the cribriform plate."
+ },
+ {
+  "key": "cribriform-plate",
+  "name": "Cribriform plate",
+  "paired": false,
+  "summary": "The thin, perforated roof of the nasal cavity. The fibres of the nerve of smell (I) pass through its small holes. It is a weak point in skull base fractures.",
+  "ct_tip": "On a coronal slice it is the thin horizontal plate on either side of the crista galli, at the top of the nasal cavity. Place the point on the midline at its level."
+ },
+ {
+  "key": "sphenoid-sinus",
+  "name": "Sphenoid sinus",
+  "paired": false,
+  "summary": "The air cavity inside the body of the sphenoid bone, behind the nose and directly below the pituitary fossa. Surgeons reach the pituitary gland through it.",
+  "ct_tip": "On a midline sagittal slice it is the air space under the sella turcica. It is usually divided unevenly by a thin bony wall."
+ },
+ {
+  "key": "maxillary-sinus",
+  "name": "Maxillary sinus",
+  "paired": true,
+  "summary": "The largest paranasal sinus, inside the cheekbone part of the upper jaw, below the orbit and beside the nose.",
+  "ct_tip": "On an axial slice below the orbits it is the large triangular air space on each side of the nasal cavity. Place the point in its centre."
+ },
+ {
+  "key": "frontal-sinus",
+  "name": "Frontal sinus",
+  "paired": false,
+  "summary": "Air cavities in the frontal bone above the eyes and the root of the nose. Their size varies a great deal between people and they are often unequal.",
+  "ct_tip": "On an axial slice just above the orbits they are the air spaces in the thickness of the forehead bone, near the midline."
+ },
+ {
+  "key": "ethmoid-air-cells",
+  "name": "Ethmoid air cells",
+  "paired": true,
+  "summary": "A honeycomb of small air cells between the nose and the orbit on each side.",
+  "ct_tip": "On an axial slice through the orbits they are the cluster of small air pockets between the two eye sockets, separated from the orbit by a paper-thin wall."
+ },
+ {
+  "key": "zygomatic-arch",
+  "name": "Zygomatic arch",
+  "paired": true,
+  "summary": "The bony bridge you can feel between the cheekbone and the ear, formed by the zygomatic and temporal bones. The chewing muscle (masseter) hangs from it.",
+  "ct_tip": "On an axial slice at the level of the jaw joint it is the thin curved bar of bone standing off the side of the skull. Place the point at its middle."
+ },
+ {
+  "key": "dens",
+  "name": "Dens (odontoid peg of C2)",
+  "paired": false,
+  "summary": "The upward-pointing peg of the second neck vertebra. The first vertebra and the head rotate around it.",
+  "ct_tip": "On a midline sagittal slice it is the tooth-like projection rising from C2 behind the front arch of C1, just below the foramen magnum. Place the point at its tip."
+ },
+ {
+  "key": "cricothyroid-membrane",
+  "name": "Cricothyroid membrane",
+  "paired": false,
+  "summary": "The membrane between the lower edge of the thyroid cartilage and the cricoid ring. In an emergency the airway can be opened through it (cricothyrotomy).",
+  "ct_tip": "On a midline sagittal slice it is the small gap at the front of the larynx between the thyroid cartilage above and the cricoid below."
+ },
+ {
+  "key": "carotid-bifurcation",
+  "name": "Carotid bifurcation",
+  "paired": true,
+  "summary": "The point where the common carotid artery divides into the internal and external carotid arteries, usually at about C3 to C4. Fatty plaque commonly builds up here.",
+  "ct_tip": "Scroll up an axial view of the neck and watch the single bright carotid artery become two."
+ }
+]
