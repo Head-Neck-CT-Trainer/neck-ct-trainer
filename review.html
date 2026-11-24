@@ -108,7 +108,7 @@
 
       <section id="mode-review" class="stage" hidden>
         <div class="rv-who"><span>Reviewing as</span>
-          <div class="seg wide" id="rv-stage"><button data-v="author">Author</button><button data-v="radiologist">Reviewer</button></div></div>
+          <div class="seg wide" id="rv-stage"><button data-v="author">Author</button><button data-v="signoff">Reviewer</button></div></div>
         <p class="muted" id="rv-intro"></p>
         <div class="row"><label for="rv-reviewer">Name</label><input type="text" id="rv-reviewer" placeholder="name and qualification" maxlength="80"></div>
         <div class="row"><label for="rv-filter">Show</label><select id="rv-filter"></select></div>
@@ -223,7 +223,7 @@
        Slices are 2.5 mm apart in the original scan, so coronal and sagittal views look softer than axial.
        "Sharpen edges" makes borders crisper but also exaggerates noise and can draw faint halos that are not anatomy.</p>
     <p class="muted author-only" hidden>Author mode (<code>?author=1</code>) also shows unreviewed drafts, the Landmarks tab for placing points
-       and the Review tab (author pre-check, then radiologist sign-off). Students use the plain address and see only
+       and the Review tab (author pre-check, then reviewer sign-off). Students use the plain address and see only
        structures whose outline the reviewer marked Correct.</p>
     <p class="muted">Educational tool, not for clinical use.</p>
     <form method="dialog"><button class="primary">Close</button></form>

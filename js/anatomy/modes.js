@@ -77,14 +77,15 @@ export function splitFirstSentence(text) {
   return m ? { first: m[1], rest: m[2].trim() } : { first: t, rest: '' };
 }
 
-// ---- two-stage review: "author" is the pre-check, "radiologist" the reviewer's final sign-off (shown as "Reviewer");
+// ---- two-stage review: "author" is the pre-check, "signoff" the reviewer's final sign-off (shown as "Reviewer");
 // both are kept side by side
-export const STAGES = ['author', 'radiologist'];
+export const STAGES = ['author', 'signoff'];
 // Older files held one verdict per structure; that verdict was the author's.
 export function migrateReview(items) {
   const out = {};
   for (const [key, v] of Object.entries(items || {})) {
     if (!v || typeof v !== 'object') continue;
+    if (v.radiologist && !v.signoff) { v = { ...v, signoff: v.radiologist }; }   // earlier files named the second stage differently
     if (STAGES.some((st) => st in v)) { out[key] = {}; for (const st of STAGES) if (v[st] && typeof v[st] === 'object') out[key][st] = { ...v[st] }; }
     else out[key] = { author: { ...v } };
   }
@@ -92,22 +93,22 @@ export function migrateReview(items) {
 }
 export const stageOf = (items, key, stage) => ((items || {})[key] || {})[stage] || {};
 // Only the reviewer's "Correct" makes a structure visible to students.
-export const studentVisible = (items, key) => stageOf(items, key, 'radiologist').outline === 'accept';
+export const studentVisible = (items, key) => stageOf(items, key, 'signoff').outline === 'accept';
 export const REVIEW_FILTERS = [
   { id: 'all', label: 'All' },
   { id: 'author-open', label: 'Author: not yet checked' },
-  { id: 'rad-ready', label: 'Author: Correct, awaiting reviewer' },
-  { id: 'rad-open', label: 'Reviewer: not yet signed off' },
+  { id: 'signoff-ready', label: 'Author: Correct, awaiting reviewer' },
+  { id: 'signoff-open', label: 'Reviewer: not yet signed off' },
   { id: 'problems', label: 'Needs fixing / Wrong' },
 ];
-export const defaultFilter = (stage) => (stage === 'radiologist' ? 'rad-ready' : 'all');
+export const defaultFilter = (stage) => (stage === 'signoff' ? 'signoff-ready' : 'all');
 export function matchesFilter(items, key, filter) {
-  const a = stageOf(items, key, 'author').outline, r = stageOf(items, key, 'radiologist').outline;
+  const a = stageOf(items, key, 'author').outline, r = stageOf(items, key, 'signoff').outline;
   const bad = (v) => v === 'fix' || v === 'reject';
   switch (filter) {
     case 'author-open': return !a;
-    case 'rad-ready': return a === 'accept' && !r;
-    case 'rad-open': return !r;
+    case 'signoff-ready': return a === 'accept' && !r;
+    case 'signoff-open': return !r;
     case 'problems': return bad(a) || bad(r);
     default: return true;
   }
@@ -115,16 +116,16 @@ export function matchesFilter(items, key, filter) {
 // "Checked" / "signed off" = that stage has given an outline verdict, whatever it is.
 export function reviewProgress(items, keys) {
   const n = (stage) => keys.filter((k) => !!stageOf(items, k, stage).outline).length;
-  return { author: n('author'), radiologist: n('radiologist'), total: keys.length };
+  return { author: n('author'), signoff: n('signoff'), total: keys.length };
 }
 
 // Reviewer's copy without a server: second-stage verdicts kept in the browser are laid over the published file.
-export function overlayStage(items, local, stage = 'radiologist') {
+export function overlayStage(items, local, stage = 'signoff') {
   const out = { ...items };
   for (const [key, v] of Object.entries(migrateReview(local))) if (v[stage]) out[key] = { ...(out[key] || {}), [stage]: v[stage] };
   return out;
 }
 // Names of the people whose second-stage "Correct" is what students see.
 export function reviewerNames(items) {
-  return [...new Set(Object.values(items || {}).map((v) => v.radiologist).filter((r) => r && r.outline === 'accept' && r.reviewer).map((r) => r.reviewer))];
+  return [...new Set(Object.values(items || {}).map((v) => v.signoff).filter((r) => r && r.outline === 'accept' && r.reviewer).map((r) => r.reviewer))];
 }

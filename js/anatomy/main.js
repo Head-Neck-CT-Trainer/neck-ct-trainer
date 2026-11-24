@@ -29,17 +29,17 @@ const LOCAL_KEY = (scan) => `anat-review:${scan}`;
 let review = { items: {} };
 const student = MODE.student;
 const openGroups = new Set(); let groupsInit = false, savedHidden = null;   // list state, in memory only
-// Two review stages per item: the author's pre-check and the radiologist's sign-off. Only the second reaches students.
-let rvStage = BUILD === 'review' || new URLSearchParams(location.search).get('review') === 'radiologist' ? 'radiologist' : 'author';
+// Two review stages per item: the author's pre-check and the reviewer's sign-off. Only the second reaches students.
+let rvStage = BUILD === 'review' || new URLSearchParams(location.search).get('review') === 'signoff' ? 'signoff' : 'author';
 const stage = (s, st) => stageOf(review.items, s.key, st);
 const allowed = (s) => !s.context && (!student || studentVisible(review.items, s.key));
 const items = () => allItems().filter(allowed);                // everything that can be selected or asked about
-// Text shown for an item: the radiologist's accepted wording wins; authors also see their own accepted wording.
+// Text shown for an item: the reviewer's accepted wording wins; authors also see their own accepted wording.
 function textFor(s) {
   // shared text, unless this scan has its own wording for the structure (content[key].scans[scanId])
   const shared = content[s.key] || {};
   const base = s.point ? s : { ...shared, ...((shared.scans || {})[scanId] || {}) };
-  const r = stage(s, 'radiologist'), a = student ? {} : stage(s, 'author');
+  const r = stage(s, 'signoff'), a = student ? {} : stage(s, 'author');
   const ok = r.text === 'accept', v = ok ? r : a.text === 'accept' ? a : {};
   return { summary: v.summary || base.summary || '', ct_tip: v.ct_tip || base.ct_tip || '',
            reviewed: ok || !!base.reviewed, reviewer: ok ? r.reviewer : '' };
@@ -303,7 +303,7 @@ function renderInfo() {
 function pills(s) {
   const t = textFor(s), what = s.point ? 'position' : 'outline', word = { accept: 'correct', fix: 'needs fixing', reject: 'wrong' };
   const pill = (who, v) => (v.outline ? `<span class="pill ${v.outline === 'accept' ? 'reviewed' : 'unreviewed'}">${who}: ${what} ${word[v.outline]}</span>` : '');
-  return `${pill('author', stage(s, 'author'))}${pill('reviewer', stage(s, 'radiologist'))}${t.reviewed ? '<span class="pill reviewed">text signed off</span>' : '<span class="pill unreviewed">unreviewed draft</span>'}`;
+  return `${pill('author', stage(s, 'author'))}${pill('reviewer', stage(s, 'signoff'))}${t.reviewed ? '<span class="pill reviewed">text signed off</span>' : '<span class="pill unreviewed">unreviewed draft</span>'}`;
 }
 
 // One line of description and one "On CT" line; anything longer sits behind "More".
@@ -406,11 +406,11 @@ function setMode(mode) {
   syncQuizView();
 }
 
-// ------------------------------------------------------------------ review (two stages: author, then radiologist)
-const STAGE_LABEL = { author: 'Author', radiologist: 'Reviewer' };
+// ------------------------------------------------------------------ review (two stages: author, then reviewer)
+const STAGE_LABEL = { author: 'Author', signoff: 'Reviewer' };
 const OUTLINE_WORD = { accept: 'Correct', fix: 'Needs fixing', reject: 'Wrong' }, TEXT_WORD = { accept: 'correct', edit: 'needs rewriting' };
 let rvIndex = 0, rvList = [], rvFilter = defaultFilter(rvStage);     // rvList: ids in the current filter, fixed until the filter changes
-const rvNames = { author: '', radiologist: '' };
+const rvNames = { author: '', signoff: '' };
 function reviewOrder() {
   const groups = [...new Set(allItems().map((s) => s.group))];
   return [...allItems()].sort((a, b) => groups.indexOf(a.group) - groups.indexOf(b.group) || a.name.localeCompare(b.name));
@@ -438,10 +438,10 @@ function stageLine(s, st) {
 function showReview(k) {
   const order = rvItems(), all = reviewOrder();
   const p = reviewProgress(review.items, all.map((s) => s.key));
-  $('#rv-progress').textContent = `Author checked ${p.author}/${p.total} · Reviewer signed off ${p.radiologist}/${p.total}`;
+  $('#rv-progress').textContent = `Author checked ${p.author}/${p.total} · Reviewer signed off ${p.signoff}/${p.total}`;
   $('#rv-stage').querySelectorAll('button').forEach((b) => b.classList.toggle('active', b.dataset.v === rvStage));
   $('#rv-filter').value = rvFilter;
-  $('#rv-intro').textContent = rvStage === 'radiologist'
+  $('#rv-intro').textContent = rvStage === 'signoff'
     ? 'Final sign-off. Students see a structure only after you mark its outline Correct here.'
     : 'Pre-check before the reviewer. Nothing marked here is shown to students.';
   const done = order.filter((s) => stage(s, rvStage).outline).length;
@@ -450,14 +450,14 @@ function showReview(k) {
   $('#rv-empty').hidden = order.length > 0; $('#rv-item').hidden = !order.length;
   if (!order.length) { rvIndex = 0; $('#rv-count').textContent = '0 items'; select(0, false); scene3d.setOnly(0); return; }
   rvIndex = Math.min(Math.max(k, 0), order.length - 1);
-  const s = order[rvIndex], v = stage(s, rvStage), other = stage(s, rvStage === 'author' ? 'radiologist' : 'author');
+  const s = order[rvIndex], v = stage(s, rvStage), other = stage(s, rvStage === 'author' ? 'signoff' : 'author');
   const base = s.point ? s : { ...(content[s.key] || {}), ...(((content[s.key] || {}).scans || {})[scanId] || {}) };
   select(s.id, true);
   scene3d.setOnly(s.id);
   $('#rv-count').textContent = `${rvIndex + 1} of ${order.length}`;
   $('#rv-name').innerHTML = `${swatch(s)}<span>${esc(s.name)}</span>`;
   $('#rv-kind').textContent = s.point ? 'Landmark point: is the dot in the right place?' : s.derived ? 'Outlined automatically: is the outline right?' : 'Outline from the data set: is it right?';
-  $('#rv-stages').innerHTML = stageLine(s, 'author') + stageLine(s, 'radiologist');
+  $('#rv-stages').innerHTML = stageLine(s, 'author') + stageLine(s, 'signoff');
   $('#rv-summary').value = v.summary || other.summary || base.summary || ''; $('#rv-tip').value = v.ct_tip || other.ct_tip || base.ct_tip || '';
   $('#rv-comment').value = v.comment || '';
   $('#rv-comment').placeholder = `Comment as ${STAGE_LABEL[rvStage].toLowerCase()} (optional)`;
@@ -522,7 +522,7 @@ async function saveReview() {
 }
 
 function setupReview() {
-  for (const st of ['author', 'radiologist'])                       // last name used in each stage
+  for (const st of ['author', 'signoff'])                       // last name used in each stage
     rvNames[st] = Object.values(review.items).map((it) => it[st]).filter((v) => v && v.reviewer).sort((a, b) => String(b.at).localeCompare(String(a.at))).map((v) => v.reviewer)[0] || '';
   $('#rv-download').onclick = () => { storeReviewFields(); downloadReview(); };
   if (BUILD === 'review') { $('.rv-who').hidden = true; $('#rv-status').textContent = 'Your verdicts are kept in this browser as you go.'; }
